@@ -1,0 +1,24 @@
+{
+  "name": "crossunder-online-system",
+  "version": "1.0.0",
+  "description": "A full-stack footwear e-commerce platform developed for CSC264.",
+  "main": "index.php",
+  "scripts": {
+    "server": "php -S localhost:8000",
+    "format": "npx prettier --write \"**/*.{js,css,html,json}\""
+  },
+  "keywords": [
+    "php",
+    "mysql",
+    "ecommerce",
+    "footwear",
+    "csc264",
+    "bootstrap5"
+  ],
+  "author": "Your Group Name / Members",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/issues"
+  },
+  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME#readme"
+}
