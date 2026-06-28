@@ -1,0 +1,10 @@
+FROM php:8.2-apache
+
+# Install the PDO MySQL extension your project needs
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Copy all your project files into the server's web directory
+COPY . /var/www/html/
+
+# Expose port 80 for web traffic
+EXPOSE 80

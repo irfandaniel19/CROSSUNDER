@@ -1,14 +1,14 @@
 <?php
 // ============================================================
 // config/db.php – CROSSUNDER Online System
-// CSC264 – Introduction to Web and Mobile Application
-// Secure PDO database connection
+// Secure Hybrid PDO database connection (Local + Cloud Ready)
 // ============================================================
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'footweardb');    // Change if your DB name differs
-define('DB_USER', 'root');           // Default XAMPP user
-define('DB_PASS', '');               // Default XAMPP password (blank)
+// If environment variables exist (Render), use them. Otherwise, fall back to XAMPP.
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'footweardb');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') !== false ? getenv('DB_PASS') : '');
 
 try {
     $pdo = new PDO(
@@ -16,16 +16,15 @@ try {
         DB_USER,
         DB_PASS,
         [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,   // Throw exceptions on error
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,         // Fetch as associative arrays
-            PDO::ATTR_EMULATE_PREPARES   => false,                     // Use real prepared statements
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,   
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,         
+            PDO::ATTR_EMULATE_PREPARES   => false,                     
         ]
     );
 } catch (PDOException $e) {
-    // Friendly error message – never expose raw PDO errors in production
-    die('<div style="font-family:sans-serif;padding:40px;text-align:center;">
+    die('<div style=\"font-family:sans-serif;padding:40px;text-align:center;\">
             <h2>⚠️ Database Connection Error</h2>
-            <p>Could not connect to the database. Please check your <code>config/db.php</code> settings.</p>
+            <p>Could not connect to the database.</p>
             <small>' . htmlspecialchars($e->getMessage()) . '</small>
          </div>');
 }
