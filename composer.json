@@ -1,0 +1,17 @@
+{
+    "name": "csc264/crossunder-online-system",
+    "description": "Footwear e-commerce web application with role-based authentication and database transaction safe checkouts.",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    },
+    "authors": [
+        {
+            "name": "Irfan Daniel bin Zulkarnain",
+            "email": "irfandanielzulkarnain1@gmail.com"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true
+    }
+}
