@@ -4,6 +4,8 @@
   "description": "A full-stack footwear e-commerce platform developed for CSC264.",
   "main": "index.php",
   "scripts": {
+    "build": ,
+    "start": "node index.js",
     "server": "php -S localhost:8000",
     "format": "npx prettier --write \"**/*.{js,css,html,json}\""
   },
